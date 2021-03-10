@@ -7,19 +7,16 @@ materialObj.getAllAnswerWidgets().forEach((question) => {
 
     if (question.getWidgetClass() == "AbcdAnswerETestWidget") {
 
-answers = question.props.correctAnswers;
-
-(answers == undefined) {
-;
+if (answers == undefined) {
+    return;
 }
 
-(let i = 0; i < answers.length; i++) {
+for (let i = 0; i < answers.length; i++) {
     const targetElements = document.querySelectorAll(`[data-answerid="${answers[i]}"]`);
- ( k = 0; k < targetElements.length; k++) {
+    for (let k = 0; k < targetElements.length; k++) {
         targetElements[k].style.border = "2px solid #2196F3";
     }
 }
-
         warnSecured(question);
     }
     else if (question.getWidgetClass() == "InputAnswerETestWidget") { // old code
